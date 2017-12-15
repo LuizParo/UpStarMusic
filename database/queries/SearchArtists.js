@@ -29,7 +29,9 @@ function buildQuery(criteria) {
     const query = {};
 
     if (criteria.name) {
-        query.name = criteria.name;
+        query.$text = {
+            $search : criteria.name
+        };
     }
 
     if (criteria.age) {
